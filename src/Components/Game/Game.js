@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../Game/Game.css';
 
 class Game extends Component {
   render() {
@@ -7,7 +8,7 @@ class Game extends Component {
         <div className="game">
           <div className="help">
             Pick 4 numbers that sum to the target in 15 seconds
-        </div>
+          </div>
           <div className="target">42</div>
           <div className="challenge-numbers">
             <div className="number">8</div>
@@ -26,3 +27,5 @@ class Game extends Component {
     )
   }
 }
+
+export default Game
