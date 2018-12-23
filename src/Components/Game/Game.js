@@ -26,12 +26,13 @@ class Game extends Component {
           </div>
           <div className="target">42</div>
           <div className="challenge-numbers">
-            <Number value={8} />
-            <Number value={5} />
-            <Number value={12} />
-            <Number value={13} />
-            <Number value={5} />
-            <Number value={16} />
+            {
+              this.challengeNumbers.map((value, index) => 
+                <Number key={index}
+                        value={value}
+                />
+              )
+            }
           </div>
           <div className="footer">
             <div className="timer-value">15</div>
