@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../Game/Game.css';
+import Number from '../Number/Number'
 
 class Game extends Component {
   render() {
@@ -11,12 +12,12 @@ class Game extends Component {
           </div>
           <div className="target">42</div>
           <div className="challenge-numbers">
-            <div className="number">8</div>
-            <div className="number">5</div>
-            <div className="number">12</div>
-            <div className="number">13</div>
-            <div className="number">5</div>
-            <div className="number">16</div>
+            <Number value={8}/>
+            <Number value={5}/>
+            <Number value={12}/>
+            <Number value={13}/>
+            <Number value={5}/>
+            <Number value={16}/>
           </div>
           <div className="footer">
             <div className="timer-value">15</div>
