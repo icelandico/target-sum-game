@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
 import '../Game/Game.css';
 import Number from '../Number/Number'
+import _ from 'lodash'
+
+const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
 class Game extends Component {
 
+  challengeNumbers = Array.from({ length: this.props.challengeSize })
+    .map(() => randomNumber(...this.props.challengeRange))
+
+  target = _.sum(
+    _.sampleSize(this.challengeNumbers, this.props.answerSize)
+  );
+
   render() {
-
-    const randomNumber = (min, max) => {
-      Math.floor(Math.random() * (max - min + 1) + min);
-    }
-
-    challengeNumbers = Array.from( { length: this.props.challengeSize })
-                            .map(() => randomNumber(...this.props.challengeRange))
-
-    target = _.sampleSize(
-      this.challengeNumbers,
-      this.props.challengeSize - 2
-    ).reduce((acc, curr) => acc + curr, 0);
 
     return(
       <div>
         <div className="game">
+        <p>Numbers are: {this.props.challengeSize}</p>
           <div className="help">
-            Pick 4 numbers that sum to the target in 15 seconds
+            Pick {this.props.answerSize} numbers that sum to the target in {this.props.initialSeconds} seconds
           </div>
-          <div className="target">42</div>
+          <div className="target">{this.target}</div>
           <div className="challenge-numbers">
             {
               this.challengeNumbers.map((value, index) => 
@@ -35,7 +34,7 @@ class Game extends Component {
             }
           </div>
           <div className="footer">
-            <div className="timer-value">15</div>
+            <div className="timer-value">{this.props.initialSeconds}</div>
             <button>Start</button>
           </div>
         </div>

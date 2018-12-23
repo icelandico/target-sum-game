@@ -9,6 +9,8 @@ class App extends Component {
         <Game 
           challengeSize={6}
           challengeRange={[2, 9]}
+          answerSize={4}
+          initialSeconds={15}
         />
       </div>
     );
