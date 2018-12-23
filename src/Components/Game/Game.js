@@ -10,6 +10,14 @@ class Game extends Component {
       Math.floor(Math.random() * (max - min + 1) + min);
     }
 
+    challengeNumbers = Array.from( { length: this.props.challengeSize })
+                            .map(() => randomNumber(...this.props.challengeRange))
+
+    target = _.sampleSize(
+      this.challengeNumbers,
+      this.props.challengeSize - 2
+    ).reduce((acc, curr) => acc + curr, 0);
+
     return(
       <div>
         <div className="game">
