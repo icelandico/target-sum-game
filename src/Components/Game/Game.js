@@ -3,7 +3,13 @@ import '../Game/Game.css';
 import Number from '../Number/Number'
 
 class Game extends Component {
+
   render() {
+
+    const randomNumber = (min, max) => {
+      Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
     return(
       <div>
         <div className="game">
@@ -12,12 +18,12 @@ class Game extends Component {
           </div>
           <div className="target">42</div>
           <div className="challenge-numbers">
-            <Number value={8}/>
-            <Number value={5}/>
-            <Number value={12}/>
-            <Number value={13}/>
-            <Number value={5}/>
-            <Number value={16}/>
+            <Number value={8} />
+            <Number value={5} />
+            <Number value={12} />
+            <Number value={13} />
+            <Number value={5} />
+            <Number value={16} />
           </div>
           <div className="footer">
             <div className="timer-value">15</div>

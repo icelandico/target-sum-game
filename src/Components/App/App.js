@@ -6,7 +6,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Game />
+        <Game 
+          challengeSize={6}
+          challengeRange={[2, 9]}
+        />
       </div>
     );
   }
