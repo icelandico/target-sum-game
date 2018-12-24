@@ -61,8 +61,21 @@ class Game extends Component {
             }
           </div>
           <div className="footer">
-            <div className="timer-value">{this.props.initialSeconds}</div>
-            <button>Start</button>
+          {
+            this.state.gameStatus === 'new' ? 
+            (
+              <button>Start</button>
+            )
+              :
+            (
+              <div className="timer-value">{this.props.initialSeconds}</div>
+            )
+          }
+          {
+            ['won', 'lost'].includes(this.state.gameStatus) && (
+              <button>Play Again</button>
+            )
+          }
           </div>
         </div>
       </div>
