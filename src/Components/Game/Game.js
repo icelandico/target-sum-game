@@ -30,12 +30,6 @@ class Game extends Component {
     selectedIds: []
   }
 
-  static bgColors = {
-    playing: '#ccc',
-    won: 'green',
-    lost: 'red'
-  }
-
   challengeNumbers = Array.from({ length: this.props.challengeSize })
     .map(() => randomNumber(...this.props.challengeRange))
 
