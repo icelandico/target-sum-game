@@ -18,6 +18,12 @@ class Game extends Component {
     clearInterval(this.intervalId)
   }
 
+  componentDidMount() {
+    if (this.props.autoPlay) {
+      this.startGame
+    }
+  }
+
   state = {
     gameStatus: 'new',
     remainingSeconds: this.props.initialSeconds,
@@ -120,7 +126,9 @@ class Game extends Component {
           }
           {
             ['won', 'lost'].includes(this.state.gameStatus) && (
-              <button>Play Again</button>
+              <button onClick={this.props.onPlayAgain}>
+                Play Again
+              </button>
             )
           }
           </div>
