@@ -35,6 +35,23 @@ class Game extends Component {
 
   isNumberAvailable = numberIndex => this.state.selectedIds.indexOf(numberIndex) === -1;
 
+  startGame = () => {
+    this.setState({
+      gameStatus: 'playing'
+    }, () => {
+      this.intervalId = setInterval(() => {
+        this.setState((prevState) => {
+          const newRemainingSeconds = prevState.remainingSeconds - 1;
+          if (newRemainingSeconds === 0) {
+            clearInterval(this.intervalId);
+            return { gameStatus: 'lost', remainingSeconds: 0 };
+          };
+          return { remainingSeconds: newRemainingSeconds};
+        });
+      }, 1000);
+    });
+  };
+
   render() {
 
     return(
