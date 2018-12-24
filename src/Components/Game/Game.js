@@ -14,6 +14,10 @@ const colors = {
 
 class Game extends Component {
 
+  componentWillUnmount() {
+    clearInterval(this.intervalId)
+  }
+
   state = {
     gameStatus: 'new',
     remainingSeconds: this.props.initialSeconds,
