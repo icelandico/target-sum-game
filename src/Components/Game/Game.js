@@ -20,7 +20,7 @@ class Game extends Component {
     selectedIds: []
   }
 
-  notClickedColor = {
+  static bgColors = {
     playing: '#ccc',
     won: 'green',
     lost: 'red'
@@ -33,6 +33,8 @@ class Game extends Component {
     _.sampleSize(this.challengeNumbers, this.props.answerSize)
   );
 
+  isNumberAvailable = numberIndex => this.state.selectedIds.indexOf(numberIndex) === -1;
+
   render() {
 
     return(
@@ -42,12 +44,18 @@ class Game extends Component {
           <div className="help">
             Pick {this.props.answerSize} numbers that sum to the target in {this.props.initialSeconds} seconds
           </div>
-          <div className="target">{this.target}</div>
+          <div className="target"
+               style={{ backgroundColor: colors[this.state.gameStatus] }}
+          >
+          { this.state.gameStatus === 'new' ? '?' : this.target }
+          </div>
           <div className="challenge-numbers">
             {
               this.challengeNumbers.map((value, index) => 
                 <Number key={index}
-                        value={value}
+                        id={index}
+                        value={this.state.gameStatus === 'new' ? '?' : value}
+                        clickable={this.isNumberAvailable(index)}
                 />
               )
             }
