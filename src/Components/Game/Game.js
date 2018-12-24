@@ -82,11 +82,10 @@ class Game extends Component {
   };
 
   render() {
-    const { gameStatus, remainingSeconds } = this.state;
+    const { remainingSeconds } = this.state;
     return(
       <div>
         <div className="game">
-        <p>Numbers are: {this.props.challengeSize}</p>
           <div className="help">
             Pick {this.props.answerSize} numbers that sum to the target in {this.props.initialSeconds} seconds
           </div>
