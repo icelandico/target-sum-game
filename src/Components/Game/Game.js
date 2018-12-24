@@ -7,6 +7,12 @@ const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + 
 
 class Game extends Component {
 
+  state = {
+    gameStatus: 'new',
+    remainingSeconds: this.props.initialSeconds,
+    selectedIds: []
+  }
+
   challengeNumbers = Array.from({ length: this.props.challengeSize })
     .map(() => randomNumber(...this.props.challengeRange))
 
