@@ -78,7 +78,7 @@ class Game extends Component {
   };
 
   render() {
-
+    const { gameStatus, remainingSeconds } = this.state;
     return(
       <div>
         <div className="game">
@@ -104,14 +104,15 @@ class Game extends Component {
           </div>
           <div className="footer">
           {
-            this.state.gameStatus === 'new' ? 
+            this.state.gameStatus === 'new' && 
             (
-              <button>Start</button>
+              <button onClick={this.startGame}>Start</button>
             )
-              :
-            (
-              <div className="timer-value">{this.props.initialSeconds}</div>
-            )
+          }
+          {
+            this.state.gameStatus === 'playing' && (
+              <div className="timer-value">{remainingSeconds}</div>
+            )            
           }
           {
             ['won', 'lost'].includes(this.state.gameStatus) && (
