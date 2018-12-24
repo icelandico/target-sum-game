@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/target-sum-game/precache-manifest.dea058f6a0db8db085a7a3f0d04182b1.js"
+  "/target-sum-game/precache-manifest.dec402f71676c19219482d3bba53ec09.js"
 );
 
 workbox.clientsClaim();
