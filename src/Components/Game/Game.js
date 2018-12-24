@@ -20,7 +20,7 @@ class Game extends Component {
 
   componentDidMount() {
     if (this.props.autoPlay) {
-      this.startGame
+      this.startGame();
     }
   }
 
@@ -108,6 +108,7 @@ class Game extends Component {
                         id={index}
                         value={this.state.gameStatus === 'new' ? '?' : value}
                         clickable={this.isNumberAvailable(index)}
+                        onClick={this.selectNumber}
                 />
               )
             }
