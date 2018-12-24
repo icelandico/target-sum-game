@@ -1,13 +1,13 @@
 {
   "main.css": "/target-sum-game/static/css/main.651d260c.chunk.css",
-  "main.js": "/target-sum-game/static/js/main.5f56f79b.chunk.js",
-  "main.js.map": "/target-sum-game/static/js/main.5f56f79b.chunk.js.map",
+  "main.js": "/target-sum-game/static/js/main.9cfd3e1d.chunk.js",
+  "main.js.map": "/target-sum-game/static/js/main.9cfd3e1d.chunk.js.map",
   "static/js/1.29035163.chunk.js": "/target-sum-game/static/js/1.29035163.chunk.js",
   "static/js/1.29035163.chunk.js.map": "/target-sum-game/static/js/1.29035163.chunk.js.map",
   "runtime~main.js": "/target-sum-game/static/js/runtime~main.28496926.js",
   "runtime~main.js.map": "/target-sum-game/static/js/runtime~main.28496926.js.map",
   "static/css/main.651d260c.chunk.css.map": "/target-sum-game/static/css/main.651d260c.chunk.css.map",
   "index.html": "/target-sum-game/index.html",
-  "precache-manifest.86b3efe400c7302f7501a62775d74a50.js": "/target-sum-game/precache-manifest.86b3efe400c7302f7501a62775d74a50.js",
+  "precache-manifest.dea058f6a0db8db085a7a3f0d04182b1.js": "/target-sum-game/precache-manifest.dea058f6a0db8db085a7a3f0d04182b1.js",
   "service-worker.js": "/target-sum-game/service-worker.js"
 }
