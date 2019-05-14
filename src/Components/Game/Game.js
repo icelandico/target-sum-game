@@ -50,7 +50,7 @@ class Game extends Component {
             clearInterval(this.intervalId);
             return { gameStatus: 'lost', remainingSeconds: 0 };
           };
-          return { remainingSeconds: newRemainingSeconds};
+          return { remainingSeconds: newRemainingSeconds };
         });
       }, 1000);
     });
@@ -63,14 +63,14 @@ class Game extends Component {
     this.setState((prevState) => ({
       selectedIds: [...prevState.selectedIds, numberIndex],
       gameStatus: this.calcGameStatus(
-        [...prevState.selectedIds,numberIndex]
+        [...prevState.selectedIds, numberIndex]
       ),
     }),
-    () => {
-      if (this.state.gameStatus !== 'playing') {
-        clearInterval(this.intervalId);
-      }
-    });
+      () => {
+        if (this.state.gameStatus !== 'playing') {
+          clearInterval(this.intervalId);
+        }
+      });
   };
 
   calcGameStatus = selectedIds => {
@@ -83,48 +83,49 @@ class Game extends Component {
 
   render() {
     const { remainingSeconds } = this.state;
-    return(
+    return (
       <div>
         <div className="game">
           <div className="help">
             Pick {this.props.answerSize} numbers that sum to the target in {this.props.initialSeconds} seconds
           </div>
           <div className="target"
-               style={{ backgroundColor: colors[this.state.gameStatus] }}
+            style={{ backgroundColor: colors[this.state.gameStatus] }}
           >
-          { this.state.gameStatus === 'new' ? '?' : this.target }
+            {this.state.gameStatus === 'new' ? '?' : this.target}
           </div>
           <div className="challenge-numbers">
             {
-              this.challengeNumbers.map((value, index) => 
-                <Number key={index}
-                        id={index}
-                        value={this.state.gameStatus === 'new' ? '?' : value}
-                        clickable={this.isNumberAvailable(index)}
-                        onClick={this.selectNumber}
+              this.challengeNumbers.map((value, index) =>
+                <Number
+                  key={index}
+                  id={index}
+                  value={this.state.gameStatus === 'new' ? '?' : value}
+                  clickable={this.isNumberAvailable(index)}
+                  onClick={this.selectNumber}
                 />
               )
             }
           </div>
           <div className="footer">
-          {
-            this.state.gameStatus === 'new' && 
-            (
-              <button onClick={this.startGame}>Start</button>
-            )
-          }
-          {
-            this.state.gameStatus === 'playing' && (
-              <div className="timer-value">{remainingSeconds}</div>
-            )            
-          }
-          {
-            ['won', 'lost'].includes(this.state.gameStatus) && (
-              <button onClick={this.props.onPlayAgain}>
-                Play Again
-              </button>
-            )
-          }
+            {
+              this.state.gameStatus === 'new' &&
+              (
+                <button onClick={this.startGame}>Start</button>
+              )
+            }
+            {
+              this.state.gameStatus === 'playing' && (
+                <div className="timer-value">{remainingSeconds}</div>
+              )
+            }
+            {
+              ['won', 'lost'].includes(this.state.gameStatus) && (
+                <button onClick={this.props.onPlayAgain}>
+                  Play Again
+                </button>
+              )
+            }
           </div>
         </div>
       </div>
